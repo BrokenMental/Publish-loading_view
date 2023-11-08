@@ -5,21 +5,25 @@ html, body {
     width: 100vw;
 }
 
-.logo-title {
+.loading-title {
     height: 80px;
     margin-left: 24px;
 }
 
+#loading-view {
+    position: absolute;
+    z-index: 10000;
+}
 
-.logo-opening-area {
+.loading-view-area {
     width: 100vw;
     height: 100vh;
 
-    -webkit-animation: hide-loading 2.5s 0s forwards;
-    animation: hide-loading 2.5s 0s forwards;
+    /* -webkit-animation: hide-loading 2.5s 0s forwards;
+    animation: hide-loading 2.5s 0s forwards; */
 }
 
-.logo-content-area {
+.loading-content-area {
     width: 40%;
     position: absolute;
     top: 50%;
@@ -31,12 +35,12 @@ html, body {
     gap: 6px;
 }
 
-.logo-content {
+.loading-content {
     border: 10px double grey;
     padding: 2px;
 }
 
-.logo-content-text {
+.loading-content-text {
     position: absolute;
     font-size: x-large;
     padding: 5px;
@@ -47,7 +51,7 @@ html, body {
     text-shadow: -1px 0px white, 0px 1px white, 1px 0px white, 0px -1px white;
 }
 
-.logo-content-img {
+.loading-content-img {
     object-fit: contain;
     z-index: 3;
 
@@ -55,7 +59,7 @@ html, body {
     max-height: 360px;
 }
 
-.logo-opening-slide-bar-area {
+.loading-view-slide-bar-area {
     width: 100%;
     height: 20px;
     border: 0;
@@ -64,27 +68,44 @@ html, body {
     bottom: 0;
 }
 
-.logo-opening-slide-bar {
+.loading-view-slide-bar {
     width: 0;
     height: 100%;
     background-color: grey;
 
-    -webkit-animation: slide-loading 2s 0s forwards;
-    animation: slide-loading 2s 0s forwards;
+    -webkit-animation: slide-loading 2.5s 0s forwards;
+    animation: slide-loading 2.5s 0s forwards;
 }
 
-.logo-content-tip-text-area {
+.loading-content-tip-text-area {
     text-align: center;
 }
 
-.logo-content-tip-text-fix {
+.loading-content-tip-text-fix {
     margin-right: 5px;
     font-weight: 800;
 }
 
-.logo-content-tip-text {
+.loading-content-tip-text {
     font-weight: 600;
     font-size: small;
+}
+
+.loading-closing-text-area {
+    position: absolute;
+    bottom: 1px;
+    font-size: small;
+    width: 100%;
+    color: white;
+    text-align: center;
+    z-index: 10001;
+}
+
+#loading-closing-text {
+    display: none;
+    
+    -webkit-animation: blink-object 0.8s 0s infinite;
+    animation: blink-object 0.8s 0s infinite;
 }
 
 @-webkit-keyframes slide-loading {
@@ -107,12 +128,26 @@ html, body {
     100% {display: none;}
 }
 
+@-webkit-keyframes blink-object {
+    0%{opacity: 0}
+    100% {opacity: 100%;}
+}
+
+@keyframes blink-object {
+    0%{opacity: 0;}
+    100% {opacity: 100%;}
+}
+
 @media(max-width: 762px) {
-    .logo-content-area {
-        width: 70%;
+    .loading-content-area {
+        width: 80%;
     }
 
-    .logo-opening-slide-bar-area {
+    .loading-view-slide-bar-area {
         height: 30px;
+    }
+
+    .loading-closing-text-area {
+        bottom: 6px;
     }
 }
