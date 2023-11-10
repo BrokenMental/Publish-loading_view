@@ -9,6 +9,7 @@ html, body {
     position: absolute;
     z-index: 10000;
     background: white;
+    display: none;
 }
 
 .loading-title {
@@ -39,17 +40,27 @@ html, body {
 .loading-content {
     border: 10px double grey;
     padding: 2px;
+    position: relative;
+
+    &#loading-content-back {
+        display: none;
+    }
 }
 
 .loading-content-text {
     position: absolute;
     font-size: x-large;
-    padding: 5px;
+    padding-left: 5px;
     color: black;
     z-index: 5;
     font-weight: 800;
+    left: 0;
 
     text-shadow: -1px 0px white, 0px 1px white, 1px 0px white, 0px -1px white;
+
+    &:nth-child(3) {
+        bottom: 0;
+    }
 }
 
 .loading-content-img {

@@ -3,9 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const loadingView = document.getElementById("loading-view");
 
     if (sessionStorage.getItem("close_loading")) {
-        loadingView.style.display = "none";
         return;
     }
+    
+    loadingView.style.display = "block";
 
     let startTimeout = setTimeout(() => {
         const loadingClosingText = document.getElementById("loading-closing-text");
