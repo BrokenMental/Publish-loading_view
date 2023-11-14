@@ -11,10 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let startTimeout = setTimeout(() => {
         const loadingClosingText = document.getElementById("loading-closing-text");
         loadingClosingText.style.display = 'block';
+        loadingView.className = "cursorPointer";
         
         loadingView.onclick = e => {
-            e.target.style.display = 'none';
-            e.target.className = 'cursorPointer';
+            loadingView.style.display = "none";
 
             sessionStorage.setItem("close_loading", true);
         }
